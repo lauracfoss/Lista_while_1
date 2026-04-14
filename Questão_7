@@ -1,0 +1,40 @@
+package listafor;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Questão_7 {
+
+//7. Repare a seguinte característica do número 3025: 30 + 25 = 55 e 55**2 = 3025.
+//	Criar um programa que possa ler vários números inteiros de 4 algarismos, um de cada vez, 
+// e diga se o número apresenta a mesma característica (repare que 3025/100=30 com resto 25). 
+// O algoritmo pára quando for lido um valor menor que 1000 ou maior que 9999.
+
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("##0.0");
+		
+		System.out.println ("Informe um valor de quatro dígitos: ");
+		int val = s.nextInt();
+		
+		while (val >= 1000 && val <= 9999) {
+			
+			int pp = val / 100;
+			int sp = val % 100;
+			
+			double res = Math.pow ((pp + sp),2);
+			
+			if (res == val) {
+				System.out.println ("Número especial");
+			} else { 
+				System.out.println ("Número comum");
+			}
+			 
+		}
+		System.out.println ("Informe um valor: ");
+		val = s.nextInt();
+
+	}
+
+}
