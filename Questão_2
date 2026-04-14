@@ -1,0 +1,36 @@
+package listafor;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Questão_2 {
+
+	public static void main(String[] args) {
+
+//2. A conversão de graus Farenheit para centígrados é obtida por C = 5/9 *(F - 32).
+// Fazer um programa que calcule e escreva uma tabela de centígrados em função
+// de graus Farenheit, que variam de 50 a 150 de 1 em 1.
+
+		Scanner s = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("##0.0");
+
+		System.out.println("Indique um valor em Farenheit para convertê-lo em graus Centígrados: ");
+		double far = s.nextDouble();
+
+		double conv = (5.0 / 9.0 * (far - 32));
+
+		System.out.println(far + " é equivalente a " + df.format(conv) + "°C");
+
+		System.out.println("Tabela de valores Farenheit -> Celsius: ");
+
+		for (int f = 50; f <= 150; f++) {
+
+			double celcius = (5.0 / 9) * (f - 32);
+
+			System.out.println(f + " = " + df.format(celcius) + "°C");
+
+		}
+
+	}
+
+}
