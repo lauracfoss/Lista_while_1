@@ -1,0 +1,56 @@
+package listafor;
+
+import java.util.Scanner;
+
+public class Questão_1 {
+
+	// Faça um programa que converta números de base 10 em números binários.
+	// 1. Fazer um programa que leia um número inteiro na base 10,
+	// de até cinco dígitos e transforme esse número da base 10 para a base
+	// 2(sequência binária)e escreva o resultado.
+	// Este programa deverá calcular conversões até que o usuário deseje terminar o
+	// programa. Use o método das divisões sucessivas.
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("Converter um valor? Sim / Não");
+		String continua = s.next();
+
+		String sequencia = "";
+
+		// continua.equalsIgnoreCase = compara se o conteudo atual da string é igual a
+		// resposta desejada para continuar.
+		// Sendo igual, retorna true (ex.: sim) , diferente retorna false (ex.: não).
+
+		while (continua.equalsIgnoreCase("Sim")) {
+
+			System.out.println("Informe o valor inteiro positivo:");
+			int valor = s.nextInt();
+
+			if (valor >= 0) {
+
+				int resto = valor % 2;
+
+				while (valor >= 2) {
+
+					resto = valor % 2;
+					sequencia = resto + sequencia;
+					valor = valor / 2;
+
+				}
+
+				sequencia = valor + sequencia;
+				System.out.println("Sequência binária: " + sequencia);
+				System.out.println("Converter número? Sim / Não");
+				continua = s.next();
+			} else {
+				System.out.println("Valor inválido");
+
+			}
+
+		}
+	}
+
+}
