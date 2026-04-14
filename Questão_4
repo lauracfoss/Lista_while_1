@@ -1,0 +1,66 @@
+package listafor;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Questão_4 {
+
+	public static void main(String[] args) {
+
+//4. Uma universidade deseja fazer um levantamento a respeito do seu concurso vestibular. Para cada curso, é fornecido o seguinte 
+//conjunto de valores: o código do curso, o número de vagas, número de candidatos do sexo masculino e o número de candidatos do sexo feminino.
+//Fazer um programa que calcule escreva para cada curso:
+//a)o número de candidatos por vaga 
+//b)a porcentagem de candidatos do sexo feminino 
+//c)determine o maior número de candidatos por vaga e escreva esse número juntamente com o código do curso correspondente
+
+		Scanner s = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("##0.0");
+
+		double maiorcandvaga = -1;
+		String maiorCod = "";
+
+		System.out.println("Deseja analisar novo curso? [1] Sim [2] Não");
+		int continua = s.nextInt();
+
+		if (continua == 2) {
+			System.out.println("Análise encerrada.");
+		}
+		
+		while (continua == 1) {
+
+			System.out.println("Informe o código do curso: ");
+			String cod = s.next();
+
+			System.out.println("Informe o número de vagas disponíveis:");
+			int quantvagas = s.nextInt();
+
+			System.out.println("Informe o número de candidatos do sexo masculino:");
+			int masc = s.nextInt();
+
+			System.out.println("Informe o número de candidatos do sexo feminino:");
+			int fem = s.nextInt();
+
+			int candvaga = (fem + masc) / quantvagas;
+
+			int femcurso = (fem / (fem + masc)) * 100;
+
+			System.out.println("O número de candidatos por vaga é " + candvaga);
+
+			System.out.println("A porcentagem de candidatos do sexo feminino equivale a " + femcurso + "%");
+
+			if (candvaga > maiorcandvaga) {
+				maiorcandvaga = candvaga;
+				maiorCod = cod;
+			}
+
+			System.out.println("Deseja analisar novo curso? [1] Sim [2] Não");
+			continua = s.nextInt();
+
+		}
+
+		
+
+	}
+
+}
