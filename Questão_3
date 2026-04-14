@@ -1,0 +1,83 @@
+package listafor;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Questão_3 {
+
+	// Como fazer com que ele imprima as respostas somente no final e não a cada
+	// mercadoria informada?
+
+	public static void main(String[] args) {
+
+//3.	Um comerciante deseja fazer o levantamento do lucro das mercadorias que ele comercializa. 
+//Fazer um programa que determine e escreva quantas mercadorias proporcionam:
+		// a) lucro < 10%
+		// b) 10% <= lucro <= 20%
+		// c) lucro > 20%
+// Ao final, determine e escreva o valor total de compra e de venda de todas as mercadorias,
+//assim como o lucro total. Este programa deverá calcular o lucro das mercadorias até o momento
+//em que o usuário resolver terminar o programa (nome da mercadoria = “X”).
+
+		Scanner s = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("##0.0");
+		
+		int contmenos10 = 0;
+		int cont1020 = 0;
+		int contmais20 = 0;
+		double contvalc = 0;
+		double contvalv = 0;
+
+		System.out.println("Quantas mercadorias deseja analisar?");
+
+		int merc = s.nextInt();
+
+		for (int i = 1; i <= merc; i++) {
+
+			System.out.println(" Mercadoria " + i + ":");
+
+			System.out.println(" Informe o preço de venda da mercadoria: R$ ");
+
+			double valv = s.nextDouble();
+			
+			// contvalv = contvalv + valv; igual 
+			
+			contvalv += valv;
+
+			System.out.println(" Informe o preço de custo da mercadoria: R$ ");
+
+			double valc = s.nextDouble();
+			
+			contvalc += valc;
+
+			double lucro = ((valv - valc) / valc) * 100;
+
+	
+
+			if (lucro < 10) {
+				contmenos10++;
+				System.out.println(" O lucro de " + contmenos10 + " mercadorias é menor que 10%");
+			}
+
+			if (lucro >= 10 && lucro <= 20) {
+				cont1020++;
+				System.out.println("O lucro de " + cont1020 + " mercadorias está entre 10% e 20%");
+			}
+
+			if (lucro > 20) {
+				contmais20++;
+				System.out.println("O lucro de " + contmais20 + " mercadorias é maior que 20%");
+			}
+
+		}
+		
+		double lucrot = (contvalv - contvalc);
+		
+		System.out.println(" O lucro total equivale a R$ " + df.format(lucrot));
+		
+		System.out.println("O valor total do preço de venda é: R$ " + df.format(contvalv));  
+		System.out.println("O valor total do preço de custo é: R$ " + df.format(contvalc));  
+
+	}
+
+}
